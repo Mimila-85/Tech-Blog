@@ -1,0 +1,18 @@
+<!-- Loop over each object in the posts array -->
+{{#each posts as |post| }}
+<div class="card text-white bg-dark mb-3">
+  <div class="card-header">
+    <h4>
+      <a href="/post/{{post.id}}">{{post.title}}</a>
+    </h4>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>
+        {{post.content}}
+      </p>
+      <footer class="blockquote-footer">Posted by <cite title="{{post.user.name}}">{{post.user.name}}</cite> on {{format_date post.date_created}}</footer>
+    </blockquote>
+  </div>
+</div>
+{{/each}}
