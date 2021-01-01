@@ -1,0 +1,59 @@
+header, .project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Settings to work with sticky foot and background image */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Settings to work with sticky foot  */
+main {
+flex: 1 0 auto;
+margin-bottom: 50px;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ebebeb;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #ffffff70;
+  text-decoration: underline;
+}
+
+.tech {
+  color: black;
+  font-weight: bold;
+}
+
+/* Add margin to the bottom of the navBar on the top of the page */
+.nav-head{
+  margin-bottom: 30px;
+}
+
+/* Properties for the sticky foot */
+.nav-foot {
+  text-align: center;
+  padding: 5px 0;
+  margin-bottom: -16px;
+  background-color:#263238c2;
+  bottom: 0px;
+}
+
+.card {
+  padding: 10px;
+}
+
+.nameDate {
+  text-align: right;
+  position: relative;
+}
