@@ -1,0 +1,14 @@
+[
+  {
+    "title": "var vs. const and let",
+    "content": "var is function scoped, let and const are block scoped, which means they are scoped to {}."
+  },
+  {
+    "title": "Template Literals",
+    "content": "Who else loves the back tick `? If you do not know, template literals allow you to write other documents syntax inside javaScript using ``. To refer a variable from javaScript inside a literal use ${}."
+  },
+  {
+    "title": "Simplified ? if : else statement",
+    "content": "This is a short way to write if/else statement. What is left of the questions mark is the condition, the : separates the if and the if else."
+  }
+]
