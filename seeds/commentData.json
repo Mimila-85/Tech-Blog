@@ -1,0 +1,7 @@
+[
+    {
+        "comment": "Adding to this, var, const and let can be referenced outside their scope as global variable.",
+        "user_id": 1,
+        "post_id": 1
+    }
+]
