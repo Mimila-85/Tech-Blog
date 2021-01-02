@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     // Client error response 400 - Bad request
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     // Client error response 400 - Bad request
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
