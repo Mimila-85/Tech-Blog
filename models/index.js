@@ -29,5 +29,5 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
-
+// Package our models and export them as an object so we can import them together and use their proper names.
 module.exports = { User, Post, Comment };
