@@ -2,38 +2,38 @@ const initial = () => {
     document.querySelector('.newComment').style.display = "none";
 }
 
+initial();
+
 const writeCommentBtn = (event) => {
     event.preventDefault();
 
     document.querySelector('.newComment').style.display = "block";
 
 }
+
 const newCommentHandler = async (event) => {
     event.preventDefault();
+    
+    const post_id = document.querySelector('.saveComment').getAttribute('post-id');
+    const comment = document.querySelector('#comment').value.trim();
+    console.log(post_id, comment);
 
-    document.querySelector('.newComment').style.display = "none";
+    if (comment) {
+        const response = await fetch(`/api/posts/${post_id}/comment`, {
+            method: 'POST',
+            body: JSON.stringify({ comment, post_id }),
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        });
     
-    if (event.target.hasAttribute('post-id')){
-        const post_id = event.target.getAttribute('post-id');
-        const comment = document.querySelector('#comment').value.trim();
-        
-    
-        if (comment) {
-            const response = await fetch(`/api/comment`, {
-                method: 'POST',
-                body: JSON.stringify({ comment, post_id }),
-                headers: {
-                'Content-Type': 'application/json',
-                },
-            });
-        
-            if (response.ok) {
-                document.location.replace('/profile');
-            } else {
-                alert('Failed to create comment');
-            }
+        if (response.ok) {
+            document.location.replace(`/post/${post_id}`);
+        } else {
+            alert('Failed to create comment');
         }
     }
+    initial();
 };
 
 document
@@ -41,5 +41,6 @@ document
     .addEventListener('click', writeCommentBtn);
 
 document
-    .querySelector('.new-post-form')
-    .addEventListener('submit', newCommentHandler);
+    .querySelector('.saveComment')
+    .addEventListener('click', newCommentHandler);
+
