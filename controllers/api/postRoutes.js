@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -58,6 +58,20 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
     // Server error response 500 - Internal Server Error
     res.status(500).json(err);
+  }
+});
+
+router.post('/:id/comment', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    // Sucess response 200 - OK
+    res.status(200).json(newComment);
+  } catch (err) {
+    // Client error response 400 - Bad request
+    res.status(400).json(err);
   }
 });
 
