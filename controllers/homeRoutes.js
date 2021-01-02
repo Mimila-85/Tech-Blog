@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     // Server error response 500 - Internal Server Error
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -57,7 +57,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     });
   } catch (err) {
     // Server error response 500 - Internal Server Error
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -74,7 +74,7 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
     });
   } catch (err) {
     // Server error response 500 - Internal Server Error
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -95,7 +95,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
   } catch (err) {
     // Server error response 500 - Internal Server Error
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
