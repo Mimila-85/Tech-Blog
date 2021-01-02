@@ -22,14 +22,7 @@ const seedDatabase = async () => {
   }
 
   await Comment.bulkCreate(commentData);
-  // for (const comment of commentData) {
-  //   await Comment.create({
-  //     ...comment,
-  //     // Choose a randle user to the comment created to seed the database.
-  //     user_id: users[Math.floor(Math.random() * users.length)].id,
-  //   });
-  // }
-
+  
   process.exit(0);
 };
 
