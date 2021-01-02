@@ -12,18 +12,22 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(newPost);
   } catch (err) {
     // Client error response 400 - Bad request
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updateData = await Post.update({
+    const updateData = await Post.update(
+      {
       ...req.body,
-      where: {
-        id: req.params.id,
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
 
     if (!updateData) {
       // Client error response 404 - Not found
@@ -34,7 +38,7 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(200).json(updateData);
   } catch (err) {
     // Client error response 400 - Bad request
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
@@ -56,7 +60,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(200).json(postData);
   } catch (err) {
     // Server error response 500 - Internal Server Error
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -70,7 +74,7 @@ router.post('/:id/comment', withAuth, async (req, res) => {
     res.status(200).json(newComment);
   } catch (err) {
     // Client error response 400 - Bad request
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
